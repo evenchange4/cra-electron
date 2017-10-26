@@ -1,6 +1,7 @@
 # Cra-electron
+> A electron playground with Create-React-App. [\[Commit diff\]](https://github.com/evenchange4/cra-electron/commit/92854190c973b47a41c906dcce56d93d509d7964?diff=unified)
 
-## Step
+## Step 
 
 ```cmd
 $ create-react-app cra-electron
