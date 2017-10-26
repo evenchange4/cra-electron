@@ -1,23 +1,43 @@
 {
-  "name": "cra-electron",
-  "version": "0.1.0",
   "private": true,
+  "name": "cra-electron",
+  "description": "A electron playground with Create-React-App.",
+  "version": "0.1.0",
+  "author": "Michael Hsu <evenchange4@gmail.com>",
+  "main": "main.js",
+  "homepage": "./",
+  "build": {
+    "appId": "cra.electron",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "postinstall": "electron-builder install-app-deps",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "electron-start": "electron .",
+    "start": "concurrently 'yarn react-start' 'wait-on http://localhost:3000/ && yarn electron-start'",
+    "pack": "NODE_ENV=production electron-builder --dir",
+    "dist": "NODE_ENV=production electron-builder",
+    "build": "yarn react-build && yarn dist"
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
     "electron": "^1.7.9",
-    "electron-is-dev": "^0.3.0",
-    "electron-packager": "^9.1.0",
+    "electron-builder": "^19.41.0",
     "wait-on": "^2.0.2"
   }
 }
