@@ -1,5 +1,7 @@
 # Cra-electron
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/evenchange4/cra-electron.svg)](https://greenkeeper.io/)
+
 ## Step
 
 ```cmd
